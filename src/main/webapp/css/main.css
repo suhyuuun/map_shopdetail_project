@@ -1,153 +1,176 @@
 @charset "UTF-8";
 
-div.shop-left {
-  min-width : 980px;
+* {
+  margin: 0 auto;
+  padding: 0;
+  border-width: 0;
+  text-align: center;
+  /*border: 1px solid black; */
 }
 
-div.shop-right {
-  max-width: 310px;
-  margin-left :-10px;
+ul {
+  list-style-type: none;
 }
 
-div#staticMap {
-  height: 300px;
+a {
+  text-decoration: none;
+  color: #444444;
+  -webkit-text-decorations-in-effect: none;
 }
 
-img#shop-main-image {
-  width: 100%;
-  height: 100%;
+.clear {
+  clear: both;
 }
 
-div.shop-info {
-  height: 50px;
+ul,
+li,
+a {
+  background-color: transparent;
 }
-p#shop-name {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: right;
-}
-
-p#shop-rating {
-  font-size: 2rem;
-  color: #ff851b;
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
-span.shop-bookmark {
-  color: #ff4136;
+body {
+  font-family: "맑은 고딕", "돋움";
+  font-size: 16px;
+  color: #444444;
+  text-align: center;
+  min-width: 1200px;
+  flex-wrap: nowrap;
 }
 
-p#shop-category {
-  height: 48px;
-  font-size: 1.2rem;
-  padding-top: 16px;
-  text-align: left;
-  text-decoration: underline;
+body::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
 }
 
-p#shop-menu {
-  font-size: 1rem;
-  text-align: left;
-  font-weight: bold;
+body::-webkit-scrollbar-thumb {
+  height: 5px; /* 스크롤바의 길이 */
+  background: ffffff; /* 스크롤바의 색상 */
+
+  border-radius: 10px;
+}
+/* 스크롤바 뒷 배경 색상 */
+/*
+body::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  
+} 
+div.body_wrap {
+    text-align:center;
+} */
+
+/* 스크롤바에 마우스 호버 */
+/*
+body::-webkit-scrollbar-thumb:hover {
+    background:lightgrey;
+} */
+
+/* test 단 */
+
+div#rowa {
+  background-color: red;
+}
+div#rowb {
+  background-color: green;
+}
+div#rowc {
+  background-color: blue;
+}
+div#rowd {
+  background-color: violet;
+}
+/* test 끝 */
+
+div#main-menu-body {
+	flex-wrap: nowrap;
 }
 
-div.shop-map {
-  border: 7px solid #ffc107;
-}
-
-div.shop-menu {
-  border: 3px solid black;
-  max-height: 290px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-div#shop-menu-detail,
-p#shop-menu-detail,
-div.shop-info-detail p {
-  margin: 0px;
-  text-align: left;
-  font-size: 1rem;
-}
-div#shop-menu-price,
-p#shop-menu-price {
-  margin: 0px;
-  text-align: right;
-  font-size: 1rem;
-}
-
-.label#stars {
-  padding: 3px 10px;
-  line-height: 13px;
-  color: #ffffff;
-  font-weight: 400;
-  border-radius: 4px;
-  font-size: 120%;
-}
-
-.round img {
-  border-radius: 100%;
-}
-
-div.comment-tag {
-  min-width: 350px;
-}
-
-.action-icons a,
-.btn-group i {
-  padding-left: 7px;
-  vertical-align: middle;
-  color: #99abb4;
-}
-
-.action-icons a#edit:hover {
-  color: #158cba;
-}
-
-i.fa-heart:hover {
-  color: #ff4136;
-}
-
-div.bookmark > input {
-  display: none;
-}
-
-div.bookmark > label {
-  position: relative;
-  cursor: pointer;
-}
-
-div.bookmark > label::before {
-  position: absolute;
-  opacity: 0;
-}
-
-div.bookmark > label:hover:before,
-div.bookmark > label:hover ~ label:before {
-  opacity: 1 !important;
-}
-
-div.bookmark > input:checked ~ label:before {
-  opacity: 1;
-}
-
-div.bookmark > input:checked ~ label:before {
-  opacity: 0.4;
-}
-
-.btn {
-  --bs-btn-color: #ff4136;
-  --bs-btn-bg: transparent;
-  --bs-btn-active-color: #ff4136;
-  --bs-btn-active-bg: #fff;
-  --bs-btn-active-border-color: #fff;
-  border: none;
-}
-
-label.btn-bookmark {
-  padding-top : 20px;
+div.logo {
+  margin: 0px 20px 0px 0px;
 }
 
 div.header-menu {
   max-width: 1030px;
 }
+
+.navbar-mainmanu {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  color: var(--bs-navbar-brand-color);
+  white-space: nowrap;
+  --bs-navbar-active-color: #fff;
+  --bs-navbar-disabled-color: rgba(255, 255, 255, 0.25);
+}
+div.login-button {
+  padding-right: 50px;
+}
+
+div.main img {
+  width: 100%;
+  height: 100%;
+}
+
+div.map-main {
+  height: 400px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.title-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin: auto;
+}
+
+div#title {
+  margin-left: -15px;
+}
+
+.people-group,
+.gender-group,
+.category-group,
+.convenience-group {
+  min-width: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 0px;
+}
+.people-group > li,
+.gender-group > li,
+.category-group > li,
+.convenience-group > li {
+  width: 75px;
+}
+
+.login-button {
+  text-align: right;
+}
+
+.btn-log {
+	width:90px;
+}
+
+/*
+div.curation-body > div {
+  border: 1px solid black;
+} */
+
+
+img#team-vita500 {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-item a:hover{
+  color: #fff;
+}
+

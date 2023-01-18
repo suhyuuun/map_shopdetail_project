@@ -80,4 +80,10 @@ public class MapController {
 
 		return "detailpage";
 	}//end detailpageMethod()
+	
+	@RequestMapping(value="/detailpage.do", method = RequestMethod.POST)
+	public String bookmarkMethod(MapDTO dto) {
+		service.saveProcess(dto);
+		return "detailpage";
+	}
 }

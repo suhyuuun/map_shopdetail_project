@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.net.URLDecoder" %>
+<%@ page import="java.net.URLDecoder"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="ko">
@@ -16,7 +16,7 @@
 <script src="https://kit.fontawesome.com/edd4d6d779.js"
 	crossorigin="anonymous"></script>
 <link href="css/main.css" type="text/css" rel="stylesheet" />
-<link href=css/shopDetail.css " type="text/css" rel="stylesheet" />
+<link href="css/shopDetail.css" type="text/css" rel="stylesheet" />
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=952441bca7c2877c20d98599bb8b06bd&amp;libraries=LIBRARY"></script>
 <script charset="UTF-8"
@@ -44,7 +44,6 @@
 										<div class="col-3 shop-category">
 											<!-- 1차/2차 카테고리 -->
 											<p id="shop-category">${food_category}</p>
-
 										</div>
 										<div class="d-flex col-2" id='div-shop-rating'>
 											<div>
@@ -77,14 +76,17 @@
 									<p id="shop-menu">메뉴</p>
 								</div>
 								<div class="d-flex">
-									<div class="col-9" id="shop-menu-detail" style="overflow: hidden; word-break:break-all; font-size: 13px; font-weight: 900;">
+									<div class="col-9" id="shop-menu-detail">
 										<c:forTokens var="item" items="${menu_namesearch}" delims=",">
-											<p>${item}</p>
+											<p
+												style="margin: 0px; text-align: left; font-size: 1rem; width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item}</p>
 										</c:forTokens>
 									</div>
-									<div class="col-3" id="shop-menu-price" style="font-size: 13px; font-weight: 900;">
+									<div class="col-3" id="shop-menu-price"
+										style="font-size: 13px; font-weight: 900;">
 										<c:forTokens var="item" items="${menu_pricesearch}" delims="/">
-											<p>${item}</p>
+											<p
+												style="margin: 0px; text-align: right; font-size: 1rem; width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${item}</p>
 										</c:forTokens>
 									</div>
 								</div>
@@ -95,6 +97,45 @@
 			</div>
 		</div>
 	</div>
+	<form name="frm" id="frm" method="post" enctype="text/plain">
+		<input type="checkbox" class="test" onchange="bookmark(this);"
+			name="test" id="test-bookmark" value="bookmark test용"
+			autocomplete="off" /> <label class="test" for="test-bookmark">북마크
+			테스트용</label>
+	</form>
+	<script type="text/javascript">
+
+		function bookmark(obj) {
+			var checked = obj.checked;
+			if (checked) {
+				obj.value = "Y";
+			} else {
+				obj.value = "N";
+			}
+			alert(checked);
+			if($("#test_bookmark").is(":checked")==true){
+				dto.set("checked","Y");
+			}else{
+				dto.set("checked","N");
+			}
+			$.ajax({
+				type : 'POST',
+				dataType: 'json',
+				data : {
+					'bookmark_yncheck' : obj
+				}
+			});
+		};
+
+		//insert에서 활용할 js
+// 		var checkYn = '${dto.checkYn}';
+// 		if(checkYn=="Y"){
+// 			$("#test_bookmark").prop("checked",true);
+// 		}
+// 		}else{
+// 			$("test_bookmakr").prop("checked",false);	
+// 		}
+	</script>
 	<script>
 		var lat = '${latitude}';
 		var lng = '${longitude}';

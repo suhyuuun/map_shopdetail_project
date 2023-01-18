@@ -21,4 +21,9 @@
 		 where b.rowm>=#{startpage} and b.rowm<=#{endpage}   
 			 ]]>
 	</select>
+	
+	<insert id="bookmark" parameterType="dto.MapDTO">
+		INSERT INTO bookmark(bookmark_seq, bookmark_yncheck)
+		values(bookmark_seq.nextval, #{bookmark_yncheck})
+	</insert>
 </mapper>

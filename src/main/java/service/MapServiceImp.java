@@ -30,6 +30,11 @@ public class MapServiceImp implements MapService{
 	public int f_countAllProcess(String data) {
 		return dao.food_countAll(data);
 	}
+
+	@Override
+	public void saveProcess(MapDTO dto) {
+		dao.bookmark_save(dto);
+	}
 	
 	
 
