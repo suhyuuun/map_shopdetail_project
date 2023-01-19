@@ -8,5 +8,5 @@ import dto.MapDTO;
 public interface MapDao {
 	public List<MapDTO> map_list(HashMap<String, Object> map);
 	public int food_countAll(String data);
-	public void bookmark_save(MapDTO dto);
+	public void bookmark_save(String bookmark_yncheck);
 }

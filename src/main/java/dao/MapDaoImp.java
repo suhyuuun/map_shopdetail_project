@@ -30,7 +30,7 @@ public class MapDaoImp implements MapDao{
 	}
 
 	@Override
-	public void bookmark_save(MapDTO dto) {
-		sqlSession.insert("food.bookmark",dto);
+	public void bookmark_save(String bookmark_yncheck) {
+		sqlSession.insert("food.bookmark",bookmark_yncheck);
 	}	
 }

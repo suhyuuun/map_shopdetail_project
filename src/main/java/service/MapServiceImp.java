@@ -6,23 +6,23 @@ import java.util.List;
 import dao.MapDao;
 import dto.MapDTO;
 
-public class MapServiceImp implements MapService{
+public class MapServiceImp implements MapService {
 	private MapDao dao;
-	
+
 	public MapServiceImp() {
 
 	}
-	
+
 	public void setDao(MapDao dao) {
 		this.dao = dao;
 	}
-	
+
 	@Override
 	public List<MapDTO> f_listProcess(int pageNo, int pageSize, String keyword) {
-		HashMap<String, Object>map = new HashMap<String, Object>();
-		map.put("startpage", ((pageNo - 1) * pageSize)+1);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("startpage", ((pageNo - 1) * pageSize) + 1);
 		map.put("endpage", pageNo * pageSize);
-		map.put("keyword", keyword); //키워드
+		map.put("keyword", keyword); // 키워드
 		return dao.map_list(map);
 	}
 
@@ -32,10 +32,8 @@ public class MapServiceImp implements MapService{
 	}
 
 	@Override
-	public void saveProcess(MapDTO dto) {
-		dao.bookmark_save(dto);
+	public void saveProcess(String bookmark_yncheck) {
+		dao.bookmark_save(bookmark_yncheck);
 	}
-	
-	
 
 }

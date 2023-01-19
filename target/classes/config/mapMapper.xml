@@ -22,8 +22,8 @@
 			 ]]>
 	</select>
 	
-	<insert id="bookmark" parameterType="dto.MapDTO">
-		INSERT INTO bookmark(bookmark_seq, bookmark_yncheck)
+	<insert id="bookmark" parameterType="string">
+		INSERT INTO bookmark2(bookmark_id, bookmark_yncheck)
 		values(bookmark_seq.nextval, #{bookmark_yncheck})
 	</insert>
 </mapper>

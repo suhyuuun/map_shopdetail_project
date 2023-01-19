@@ -3,11 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.net.URLDecoder"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
 <title>${foodstore_name}</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -97,49 +100,53 @@
 			</div>
 		</div>
 	</div>
-	<form name="frm" id="frm" method="post" enctype="text/plain">
+	<form name="frm" id="frm" method="post">
 		<input type="checkbox" class="test" onchange="bookmark(this);"
 			name="test" id="test-bookmark" value="bookmark test용"
 			autocomplete="off" /> <label class="test" for="test-bookmark">북마크
 			테스트용</label>
 	</form>
 	<script type="text/javascript">
-
 		function bookmark(obj) {
-			var checked = obj.checked;
-			if (checked) {
-				obj.value = "Y";
-			} else {
-				obj.value = "N";
-			}
-			alert(checked);
-			if($("#test_bookmark").is(":checked")==true){
-				dto.set("checked","Y");
-			}else{
-				dto.set("checked","N");
-			}
+			//	var checked = obj.checked;
+			alert(obj.checked);
+
+			//onchange 활용 상세페이지 새로고침하면 true 바뀌기때문에 그거 정리
+			// 			if($("#test_bookmark").is(":checked")==true){
+			// 				dto.set("checked","Y");
+			// 			}else{
+			// 				dto.set("checked","N");
+			// 			}
+
 			$.ajax({
 				type : 'POST',
-				dataType: 'json',
+				dataType : 'text',
 				data : {
-					'bookmark_yncheck' : obj
+					'bookmark_yncheck' : obj.checked
+				},
+				url : 'detailpage.do',
+				success : function(result) {
+					alert(result);
+				},
+				error : function(error) {
+					alert(error);
 				}
 			});
+
 		};
 
 		//insert에서 활용할 js
-// 		var checkYn = '${dto.checkYn}';
-// 		if(checkYn=="Y"){
-// 			$("#test_bookmark").prop("checked",true);
-// 		}
-// 		}else{
-// 			$("test_bookmakr").prop("checked",false);	
-// 		}
-	</script>
-	<script>
+		// 		var checkYn = '${dto.checkYn}';
+		// 		if(checkYn=="Y"){
+		// 			$("#test_bookmark").prop("checked",true);
+		// 		}
+		// 		}else{
+		// 			$("test_bookmakr").prop("checked",false);	
+		// 		}
+
 		var lat = '${latitude}';
 		var lng = '${longitude}';
 	</script>
-	<script src=js/detail_page.js></script>
+	<script src=js/detail_page.js></script> -->
 </body>
 </html>

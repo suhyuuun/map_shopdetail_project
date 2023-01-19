@@ -51,7 +51,7 @@ public class MapController {
 		return mav;
 	}// end foodMap()
 
-	@RequestMapping("/detailpage.do")
+	@RequestMapping(value="/detailpage.do", method = RequestMethod.GET)
 	public String detailpageMethod(HttpServletRequest httpServletRequest, Model model)
 			throws UnsupportedEncodingException {
 		String latitude = httpServletRequest.getParameter("latitude");
@@ -81,9 +81,18 @@ public class MapController {
 		return "detailpage";
 	}//end detailpageMethod()
 	
+//	@RequestMapping(value="/detailpage.do", method = RequestMethod.POST)
+//	public String bookmarkMethod(MapDTO dto) {
+//		service.saveProcess(dto);
+//		return "detailpage";
+//	}
+	
+	@ResponseBody               
 	@RequestMapping(value="/detailpage.do", method = RequestMethod.POST)
-	public String bookmarkMethod(MapDTO dto) {
-		service.saveProcess(dto);
+	public String bookmarkMethod(boolean bookmark_yncheck, Model model) {
+		System.out.println("bookmark: " + bookmark_yncheck);
+		service.saveProcess(bookmark_yncheck ? "Y" : "N"); 
+		model.addAttribute("bookmark_yncheck",bookmark_yncheck);
 		return "detailpage";
 	}
 }
