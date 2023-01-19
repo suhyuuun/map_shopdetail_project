@@ -81,12 +81,6 @@ public class MapController {
 		return "detailpage";
 	}//end detailpageMethod()
 	
-//	@RequestMapping(value="/detailpage.do", method = RequestMethod.POST)
-//	public String bookmarkMethod(MapDTO dto) {
-//		service.saveProcess(dto);
-//		return "detailpage";
-//	}
-	
 	@ResponseBody               
 	@RequestMapping(value="/detailpage.do", method = RequestMethod.POST)
 	public String bookmarkMethod(boolean bookmark_yncheck, Model model) {
