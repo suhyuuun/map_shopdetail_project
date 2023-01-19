@@ -108,28 +108,21 @@
 	</form>
 	<script type="text/javascript">
 		function bookmark(obj) {
-			//	var checked = obj.checked;
+			var checked = obj.checked;
 			alert(obj.checked);
-
-			//onchange 활용 상세페이지 새로고침하면 true 바뀌기때문에 그거 정리
-			// 			if($("#test_bookmark").is(":checked")==true){
-			// 				dto.set("checked","Y");
-			// 			}else{
-			// 				dto.set("checked","N");
-			// 			}
 
 			$.ajax({
 				type : 'POST',
 				dataType : 'text',
 				data : {
-					'bookmark_yncheck' : obj.checked
+					'bookmark_yncheck' : checked
 				},
 				url : 'detailpage.do',
 				success : function(result) {
-					alert(result);
+					//alert(result);
 				},
 				error : function(error) {
-					alert(error);
+					//alert(error);
 				}
 			});
 
@@ -147,6 +140,7 @@
 		var lat = '${latitude}';
 		var lng = '${longitude}';
 	</script>
-	<script src=js/detail_page.js></script> -->
+	<script src=js/detail_page.js></script>
+	-->
 </body>
 </html>
